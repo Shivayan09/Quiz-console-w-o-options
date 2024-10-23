@@ -21,7 +21,7 @@ class ProblemSetting {
     }
 }
 class Play {
-    ProblemSetting[] p = new ProblemSetting[5];
+    ProblemSetting[] p = new ProblemSetting[6];
     public Play() {
         p[0] = new ProblemSetting("What is the time complexity of accessing an element in an array ?",
         "constant");
@@ -33,6 +33,7 @@ class Play {
         "heap");
         p[4] = new ProblemSetting("What is the process of removing duplicates from a collection called ?", 
         "deduplication");
+        p[5] =  new ProblemSetting("What is the time complexity of a binary search ?", "o(logn)");
     }
     public void display() {
         Scanner sc = new Scanner(System.in);
@@ -64,12 +65,15 @@ class Play {
             }
             System.out.println();
         }
-        if(score<2) {
+        int pct = (int)(score*100/p.length);
+        if(pct<30) {
             System.out.println("BETTER LUCK NEXT TIME!");
-        } else if(score>=2 && score<=4) {
-            System.out.println("YOU DID WELL!");
-        } else {
-            System.out.println("EXCELLENT!!");
+        } else if(pct>30 && pct<=60) {
+            System.out.println("YOU CAN DO BETTER!");
+        } else if(pct>60 && pct<=90) {
+            System.out.println("YOU DID PRETTY WELL");
+        } else if(pct>90) {
+            System.out.println("EXCELLENT JOB!");
         }
     }
 }
